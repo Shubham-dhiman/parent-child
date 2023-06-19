@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnDestroy, ViewChild } from '@angular/core';
 import { ChildComponentComponent } from '../child-component/child-component.component';
 import { ParentChildService } from '../../services/parent-child.service';
 import { Subscription, interval } from 'rxjs';
@@ -8,7 +8,7 @@ import { Subscription, interval } from 'rxjs';
   templateUrl: './parent-component.component.html',
   styleUrls: ['./parent-component.component.css'],
 })
-export class ParentComponentComponent {
+export class ParentComponentComponent implements OnDestroy {
   parentData: any[] = [
     { name: 'Jack', money: 20 },
     { name: 'Jill', money: 20 },
@@ -20,6 +20,9 @@ export class ParentComponentComponent {
   layout = 'row';
   subs!: Subscription;
   constructor(private service: ParentChildService) {}
+  ngOnDestroy(): void {
+    this.subs?.unsubscribe();
+  }
 
   ngOnInit() {
     this.sendMoneyEveryMin();
@@ -77,4 +80,6 @@ export class ParentComponentComponent {
       });
     });
   }
+
+  ngDestroy() {}
 }

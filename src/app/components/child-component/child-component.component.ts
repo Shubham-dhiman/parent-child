@@ -29,4 +29,5 @@ export class ChildComponentComponent {
   getMoneyFromService() {
     this.Name = this.service.receiveMoney();
   }
+  
 }
