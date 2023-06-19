@@ -1,0 +1,48 @@
+<div class="radio p-3">
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" checked id="row" (click)="radioCheck($event)">
+        <label class="form-check-label" for="row">
+            Row
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="column" (click)="radioCheck($event)">
+        <label class="form-check-label" for="column">
+            Column
+        </label>
+    </div>
+</div>
+
+<button class="btn btn-primary ms-3 my-2" (click)="sendMoneyAll()">
+    Send Money to All Chileren
+</button>
+<button class="btn btn-primary ms-3" (click)="getMoneyAll()">
+    Get Money from  All Chileren
+</button>
+<div class="my-3 p-3 ">
+    <div [fxLayout]="layout">
+        <ng-container *ngFor="let data of parentData">
+            <div class="child ms-3" [fxFlex]="data.money">
+                <hr>
+                <span>Parent Component</span>
+                <button class="btn btn-primary ms-3 my-2" (click)="sendMoney(data.name)">
+                    Send Money to {{data.name}}
+                </button>
+                <button class="btn btn-primary ms-3" (click)="getMoney(data)">
+                    Get Money from {{data.name}}
+                </button>
+            </div>
+        </ng-container>
+    </div>
+
+    <div [fxLayout]="layout" >
+        <ng-container *ngFor="let data of parentData">
+            <div class="chid ms-3" [fxFlex]="data.money">
+                <hr>
+                <span>Child Component</span>
+                <app-child-component [Name]="data" #child (money)="substractMoney($event)"
+                    (addMoneyEvent)="addChildMoney($event)"></app-child-component>
+            </div>
+        </ng-container>
+    </div>
+</div>
