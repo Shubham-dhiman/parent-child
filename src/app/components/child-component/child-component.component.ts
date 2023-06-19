@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { ParentChildService } from 'src/app/services/parent-child.service';
+import { ParentChildService } from '../../services/parent-child.service';
 
 @Component({
   selector: 'app-child-component',

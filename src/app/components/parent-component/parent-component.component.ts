@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { ChildComponentComponent } from '../child-component/child-component.component';
-import { ParentChildService } from 'src/app/services/parent-child.service';
+import { ParentChildService } from '../../services/parent-child.service';
 import { Subscription, interval } from 'rxjs';
 
 @Component({
