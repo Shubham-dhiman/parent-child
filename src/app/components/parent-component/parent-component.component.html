@@ -14,10 +14,10 @@
 </div>
 
 <button class="btn btn-primary ms-3 my-2" (click)="sendMoneyAll()">
-    Send Money to All Chileren
+    Send Money to All Children
 </button>
 <button class="btn btn-primary ms-3" (click)="getMoneyAll()">
-    Get Money from  All Chileren
+    Get Money from  All Children
 </button>
 <div class="my-3 p-3 ">
     <div [fxLayout]="layout">
@@ -28,7 +28,7 @@
                 <button class="btn btn-primary ms-3 my-2" (click)="sendMoney(data.name)">
                     Send Money to {{data.name}}
                 </button>
-                <button class="btn btn-primary ms-3" (click)="getMoney(data)">
+                <button class="btn btn-danger ms-3" (click)="getMoney(data)">
                     Get Money from {{data.name}}
                 </button>
             </div>
